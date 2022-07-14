@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+// Interface exported by the server.
+service Game {
+    rpc GameStream (stream GameMessage) returns (stream GameMessage) {
+    }
+    rpc RoomRequest (stream RoomRequestMessage) returns (stream RoomResponse) {
+    }
+    rpc RoomCheck (RoomRequestMessage) returns (RoomResponse) {
+    }
+}
+
+service Auth {
+    rpc Authentication (AuthRequest) returns (AuthResponse) {
+    }
+}
+
+message AuthRequest {
+    string user_id = 1;
+    string password = 2;
+    bool remember = 3;
+}
+
+message AuthCredentials {
+    string token = 1;
+    string code = 2;
+}
+
+message AuthResponse {
+    oneof response {
+        bool available = 1;
+        AuthCredentials payload = 2;
+    }
+}
+
+// Describes a tile on the board
+message TileCoord {
+    uint32 horizontal = 1;
+    uint32 vertical = 2;
+}
+
+// Describes a node on the board
+message NodeCoord {
+    uint32 horizontal = 1;
+    uint32 vertical = 2;
+    bool upper = 3;
+}
+
+// Describes a player action
+message GameAction {
+    oneof coordinate {
+        TileCoord tilePos = 1;
+        NodeCoord nodePos = 2;
+    }
+    uint32 action = 3;
+    uint32 issuer = 4;
+}
+
+// Sent when a player connects / disconnects
+message ConnectionMessage {
+    bool connection = 1;
+    PlayerInfo player = 2;
+}
+
+message BoardBytes {
+    bytes state = 1;
+    uint32 issuer = 2;
+}
+
+// In-game message, can be either connection or action
+message GameMessage {
+    oneof payload {
+        GameAction action = 1;
+        ConnectionMessage connectionInfo = 2;
+        RoomDetail roomInfo = 3;
+        BoardBytes boardState = 4;
+    }
+}
+
+// Sent to cancel a request or for roomcheck
+message RoomRequestMessage {
+    bool cancel = 1;
+}
+
+// Answer to a room request, can be either false or the room info
+message RoomResponse {
+    oneof response {
+        bool available = 1;
+        RoomInfo info = 2;
+    }
+}
+
+// Send information about the constitution of the room
+message RoomDetail {
+    uint32 roomSize = 1;
+    repeated PlayerInfo player = 2;
+}
+
+message PlayerInfo {
+    uint32 playerNum = 1;
+    string playerID = 2;
+}
+
+// Answer to a room request with corresponding ID
+message RoomInfo {
+    uint32 roomID = 1;
+    uint32 playerNum = 2;
+}

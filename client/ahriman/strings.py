@@ -1,0 +1,27 @@
+MAIN_MENU_TITLE = 'Ahriman - early access'
+LOGIN_STRING = 'Log in'
+USERID_TITLE = 'Username:'
+PASSWORD_TITLE = 'Password:'
+REMEMBER_CHECK = 'remember me'
+INVALID_CREDENTIALS = 'Invalid credentials'
+PLAY_BUTTON_LABEL = 'Play!'
+QUIT_BUTTON_LABEL = 'Exit'
+LOGOUT_BUTTON_LABEL = 'Log out'
+SEARCHING_BUTTON_LABEL = 'Searching...'
+QUIT_POPUP_MESSAGE = ['Do you want to quit the game ?']
+LOGOUT_POPUP_MESSAGE = ['Do you want to log out ?']
+YES_BUTTON = 'Yes'
+NO_BUTTON = 'No'
+OK_BUTTON = 'OK'
+QUIT_BUTTON = 'QUIT'
+CANCEL_BUTTON = 'Cancel'
+LEAVE_BUTTON = 'Leave'
+NO_ROOMS_POPUP = ['Sorry, there are no rooms currently available :(', 'Try again later!']
+HACK_POPUP = ['An other player uses a hacked version of the game',
+              'This incident has been reported']
+SERVER_DOWN_POPUP = ['The servers are down for the moment :(', 'Try again later!']
+WINDOW_CAPTION = 'Ahriman - Early access'
+PLAYER_DISCONNECTED_TIMER = ['A player was disconnected.', 'Waiting for reconnection']
+END_TURN_BUTTON_ACTIVE = 'End turn'
+END_TURN_BUTTON_INACTIVE = 'Waiting'
+SYMBOL_CHECKBOX = 'symbols'

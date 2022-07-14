@@ -1,0 +1,11 @@
+{
+  "board": {
+    "rows": 5,
+    "cols": 5,
+    "fill": "base",
+    "init": {
+      "base": 1
+    },
+    "node_object": "totem"
+  }
+}

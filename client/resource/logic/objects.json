@@ -1,0 +1,36 @@
+{
+  "tiles": {
+    "base": {
+      "textures": {
+        "bottom": "hexagon"
+      },
+      "resources": {
+        "fire": 1
+      }
+    },
+    "forest": {
+      "textures": {
+        "bottom": "hexagon",
+        "mid": "tree"
+      },
+      "resources": {
+
+      }
+    }
+  },
+  "nodes": {
+    "totem": {
+      "textures": {
+        "bottom": "totem"
+      }
+    }
+  },
+  "cards": {
+    "flag": {
+      "cost": {
+        "fire": 2
+      },
+      "score": 1
+    }
+  }
+}
